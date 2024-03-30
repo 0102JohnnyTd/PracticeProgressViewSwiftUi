@@ -8,17 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoading = false
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            if isLoading {
+                ProgressView("Loading...")
+                    .padding()
+            }
+            Button("Start Loading") {
+                isLoading = true
+            }
+            Button("Stop Loading") {
+                isLoading = false
+            }
+            .foregroundStyle(.pink)
+            .padding()
         }
-        .padding()
+        
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
