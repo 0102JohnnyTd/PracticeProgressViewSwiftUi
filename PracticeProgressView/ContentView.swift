@@ -14,6 +14,7 @@ struct ContentView: View {
         VStack {
             if isLoading {
                 ProgressView("Loading...")
+                    .progressViewStyle(.circular)
                     .padding()
             }
             Button("Start Loading") {
